@@ -5,13 +5,14 @@ roomsCtrl.controller ('roomsController', roomsController);
 function roomsController ($scope, socket) {
     var ctrl = this;
     ctrl.msg = "";
-    ctrl.sendMessage = function () {
-        socket.emit("message", {msg: 'my msg'});
-    };
-
+    ctrl.roomsList = [];
+    
+    socket.emit("get_rooms", {});
+    socket.on("rooms_list", function (data) {
+        ctrl.roomsList = data.rooms;
+    });
     socket.on('welcome', function (data){
-        console.log(data.msg);
-        msg = data.msg;
+        ctrl.msg = data.msg;
     });
 
 

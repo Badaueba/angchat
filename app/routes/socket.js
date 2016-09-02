@@ -13,5 +13,14 @@ function init (server) {
         socket.on('message', function (data){
             console.log(data);
         })
+
+        socket.on("get_rooms", function () {
+            console.log('get_rooms');
+            var allRooms = [];
+            for (var i = 0; i < 10; i ++) {
+                allRooms.push ({ name : 'room' + i, usersLength : i+4});
+            }
+            socket.emit("rooms_list", { rooms : allRooms});
+        })
     })
 }

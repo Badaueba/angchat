@@ -1,7 +1,36 @@
 <div class="jumbotron text-center">
-    <h1>Rooms</h1>
-    <button class="btn btn-success" ng-click="rooms.sendMessage()">Start</button>
-    <p>
-        {{rooms.msg}}
-    </p>
+    <h2>{{rooms.msg}}</h2>
+    <h3>Rooms List</h3>
 </div>
+
+<div class="page-header">
+    <h3 >
+        <a ui-sref="#" class="btn btn-primary">
+            <span class="glyphicon glyphicon-plus"></span>
+        </a> Create new Room
+    </h3>
+
+</div>
+
+<table class="table table-bordered table-striped" ng-show="rooms.roomsList">
+	<thead>
+		<tr>
+			<th>Room Name</th>
+			<th>Users</th>
+			<th class="col-sm-1"></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<!-- Loop over the users -->
+		<tr ng-repeat="room in rooms.roomsList">
+			<td>{{room.name}}</td>
+			<td>{{room.usersLenght}}</td>
+			<td class="col-sm-1">
+				<a ui-sref="#"
+                   class="btn btn-success"> Enter
+                </a>
+			</td>
+		</tr>
+	</tbody>
+</table>
