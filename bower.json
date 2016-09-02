@@ -1,0 +1,28 @@
+{
+  "name": "angchat",
+  "description": "angular + socket.io chat",
+  "main": "server.js",
+  "authors": [
+    "alan g. alves"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "socket.io",
+    "angularjs",
+    "nodejs"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "angular-route": "^1.5.8",
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.1"
+  }
+}
