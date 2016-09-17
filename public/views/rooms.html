@@ -5,9 +5,15 @@
 
 <div class="page-header">
     <h3 >
-        <a ui-sref="#" class="btn btn-primary">
+        <a ui-sref="#" class="btn btn-primary" ng-click="rooms.enableNewRoomForm()">
             <span class="glyphicon glyphicon-plus"></span>
         </a> Create new Room
+
+        <form ng-if="rooms.newRoomFormEnabled">
+            <input type="text" name="name" placeholder="room name" ng-model="rooms.newRoom.name">
+            <div class="btn btn-primary" ng-click="rooms.createNewRoom()">Create</div>
+        </form>
+
     </h3>
 
 </div>
@@ -17,7 +23,7 @@
 		<tr>
 			<th>Room Name</th>
 			<th>Users</th>
-			<th class="col-sm-1"></th>
+			<th class="col-sm-2"></th>
 		</tr>
 	</thead>
 
@@ -26,7 +32,7 @@
 		<tr ng-repeat="room in rooms.roomsList">
 			<td>{{room.name}}</td>
 			<td>{{room.usersLenght}}</td>
-			<td class="col-sm-1">
+			<td class="col-sm-2">
 				<a ui-sref="#"
                    class="btn btn-success"> Enter
                 </a>
