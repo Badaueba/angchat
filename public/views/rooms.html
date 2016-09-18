@@ -5,7 +5,7 @@
 
 <div class="page-header">
     <h3 >
-        <a ui-sref="#" class="btn btn-primary" ng-click="rooms.enableNewRoomForm()">
+        <a class="btn btn-primary" ng-click="rooms.enableNewRoomForm()">
             <span class="glyphicon glyphicon-plus"></span>
         </a> Create new Room
 
@@ -33,7 +33,7 @@
 			<td>{{room.name}}</td>
 			<td>{{room.usersLenght}}</td>
 			<td class="col-sm-2">
-				<a ui-sref="#"
+				<a ui-sref="chat({room : room.name})"
                    class="btn btn-success"> Enter
                 </a>
 			</td>

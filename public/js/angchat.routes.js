@@ -11,5 +11,11 @@ angular.module('angchat')
             controller : 'roomsController',
             controllerAs : 'rooms',
         })
+        .state('chat', {
+            url : '/chat/:room',
+            templateUrl : 'views/chat.html',
+            controller : 'chatController',
+            controllerAs : 'chat'
+        })
     $urlRouterProvider.otherwise('/home');
 });

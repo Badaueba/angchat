@@ -1,0 +1,61 @@
+<div class="page-header">
+    <h3 >
+         Chat
+        <form ng-if="!chat.userHasName">
+            <input type="text" placeholder="your name" ng-model="chat.username">
+            <div class="btn btn-primary" ng-click="chat.init()">Initialize</div>
+        </form>
+    </h3>
+</div>
+
+
+<div ng-if="chat.userHasName">
+    <ul id="messages"></ul>
+    <form id="message_form" ng-submit="chat.sendMessage()">
+      <input id="message_input" ng-model="chat.message"autocomplete="off" autofocus="on"type="text" />
+      <button id="send_message">Send</button>
+    </form>
+</div>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:
+    border-box;
+}
+body {
+    font: 13px Helvetica, Arial;
+}
+#message_form {
+    padding: 3px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#message_input {
+    padding: 3%;
+    width: 100%;
+}
+
+#send_message {
+    padding: 0.5%;
+    width: 10%;
+    background: rgba(50, 200, 50, 0.8);
+
+}
+
+#messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#messages li {
+    padding: 5px 10px;
+}
+#messages li:nth-child(odd) {
+    background: #eee;
+}
+<style>

@@ -1,1 +1,1 @@
-var angchat = angular.module('angchat', ['ui.router', 'roomsCtrl', 'socketService']);
+var angchat = angular.module('angchat', ['ui.router', 'roomsCtrl', 'chatCtrl', 'socketService']);

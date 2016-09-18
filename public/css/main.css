@@ -1,0 +1,12 @@
+.notifications {
+    margin-top: 5%;
+    position: absolute;
+    float: left;
+}
+@media (max-width : 600px) {
+   .notifications {
+        margin-top: 10%;
+        position: absolute;
+        float: left;
+    }
+}

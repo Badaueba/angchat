@@ -10,16 +10,25 @@
         <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="libs/angular/angular.js"></script>
         <script src="libs/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="libs/angular-animate/angular-animate.min.js"></script>
         <script src="/socket.io/socket.io.js"></script>
+        <link rel="stylesheet" href="libs/angular-growl-v2/build/angular-growl.min.css">
+        <script src="/libs/angular-growl-v2/build/angular-growl.min.js"></script>
         <script src="js/angchat.js"></script>
         <script src="js/angchat.routes.js"></script>
         <script src="js/services/socketService.js"></script>
         <script src="js/controllers/roomsCtrl.js"></script>
+        <script src="js/controllers/chatCtrl.js"></script>
 
     </head>
     <body ng-app="angchat">
         <a ui-sref="home">Home</a>
         <a ui-sref="rooms">Rooms</a>
+
+        <div class="notifications">
+            <div growl></div>
+        </div>
+        
         <div ui-view></div>
     </body>
 </html>

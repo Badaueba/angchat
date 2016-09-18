@@ -18,11 +18,30 @@ function init (server) {
         socket.on("add_room", function (data) {
             console.log("add room");
             allRooms.push(data);
+            io.sockets.emit("rooms_list", {rooms : allRooms});
+        });
+
+        socket.on("set_name", function (data) {
+            socket.username = data.username;
+            console.log(socket.username);
+            data = { type : 'success' , message :'Welcome to chat'};
+            socket.emit("server_notify", data);
+            socket.emit("user_logged", {});
         });
 
         socket.on("get_rooms", function () {
             console.log('get_rooms');
             socket.emit("rooms_list", { rooms : allRooms});
+        });
+
+        socket.on("join_room", function (room) {
+            socket.join(room.name);
+            socket.room = room.name;
+            var data = {
+                type : 'info',
+                message : socket.username + " has joined the room"
+            };
+            socket.in(room.name).broadcast.emit('server_notify', data);
         });
     })
 }
