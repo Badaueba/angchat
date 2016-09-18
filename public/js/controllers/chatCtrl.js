@@ -41,7 +41,7 @@ function chatController (socket, growl, $stateParams){
     };
 
     ctrl.sendMessage = function (){
-        console.log(ctrl.message);
+        socket.emit("message", {message : ctrl.message});
         ctrl.message = "";
     }
     socket.on("server_notify", function (data) {
@@ -53,6 +53,13 @@ function chatController (socket, growl, $stateParams){
     })
 
     socket.on("message", function (data) {
-        
-    })
+
+        var messageLI = document.createElement("LI");
+        var messageText = document.createTextNode(data.username + ": " + data.message);
+        messageLI.appendChild(messageText);
+        var messageUL = document.getElementById("messages");
+        messageUL.appendChild(messageLI);
+
+        console.log(data);
+    });
 }

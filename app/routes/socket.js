@@ -43,5 +43,11 @@ function init (server) {
             };
             socket.in(room.name).broadcast.emit('server_notify', data);
         });
+
+        socket.on("message", function (data){
+            data.username = socket.username;
+            socket.in(socket.room).broadcast.emit("message", data);
+            socket.emit("message", data);
+        });
     })
 }
