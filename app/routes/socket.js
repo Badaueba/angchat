@@ -49,5 +49,9 @@ function init (server) {
             socket.in(socket.room).broadcast.emit("message", data);
             socket.emit("message", data);
         });
+
+        socket.on("disconnect", function (){
+            console.log(socket.username + "has left");
+        })
     })
 }
